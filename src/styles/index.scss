@@ -1,0 +1,22 @@
+@import './variables';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: $black;
+  padding: 0;
+  margin: auto;
+  color: #fff;
+  font-size: 18px;
+  min-width: 320px;
+
+  position: relative;
+  font-family: $default-font;
+  overflow-x: hidden;
+}
+
+#root {
+  height: 100%;
+}

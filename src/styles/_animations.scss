@@ -1,0 +1,11 @@
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+//Нужно если мы делаем display: block display: none и прописываем ему аниматион, у нас будет плавное появление элемента

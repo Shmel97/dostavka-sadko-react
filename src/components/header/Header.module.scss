@@ -1,0 +1,142 @@
+@import '../../styles/variables';
+
+.header {
+  background-color: #403c3b;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+
+  margin: auto;
+
+  > a > .logo {
+    width: 100px;
+    filter: brightness(0) invert(1);
+    margin-left: 100px;
+  }
+
+  > h1 {
+    font-family: $default-font;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  > div > .location {
+    position: relative;
+    left: 36px;
+    top: 7px;
+  }
+
+  > div > input {
+    background: #504b4a;
+
+    border-radius: 10px;
+    max-width: 555px;
+    height: 52px;
+    padding: 0 50px 0 15px;
+    font-style: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    color: #cfcfcf;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: all 0.05s ease-in-out;
+
+    &:focus {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    &::placeholder {
+      color: #cfcfcf;
+      font-size: 18px;
+      font-weight: 200;
+    }
+  }
+
+  > div > .search {
+    position: relative;
+    right: 38px;
+    top: 6px;
+  }
+
+  > .calling {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    width: 200px;
+
+    > div > .icon {
+      margin-right: 18px;
+    }
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+    > div > p {
+      padding: 0;
+      font-size: 12px;
+      font-weight: 200;
+      color: #cfcfcf;
+      margin: 5px 0;
+    }
+    > div > a {
+      padding: 0;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  > .login {
+    background: $greens;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.12s ease-in-out;
+  }
+  > .login:hover {
+    box-shadow: 0px 5px 12px rgba(114, 164, 121, 0.3);
+  }
+
+  > button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    width: 149px;
+    height: 52px;
+    padding: 18px 24px;
+    border-radius: 10px;
+    background: $greens;
+    border: none;
+    color: #fff;
+    margin-right: 100px;
+    cursor: pointer;
+    transition: all 0.12s ease-in-out;
+    > .line {
+      width: 38px;
+      height: 0px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+      color: #fff;
+    }
+    &:hover {
+      box-shadow: 0px 5px 12px rgba(114, 164, 121, 0.3);
+    }
+  }
+}

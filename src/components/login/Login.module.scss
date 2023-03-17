@@ -1,0 +1,54 @@
+@import '../../styles/variables';
+
+.login {
+  width: 400px;
+  color: #fff;
+  margin: 50px auto;
+  > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > input {
+      background: #504b4a;
+      margin: 15px 0;
+      border-radius: 10px;
+
+      height: 52px;
+      padding: 0 50px;
+
+      font-size: 18px;
+      font-weight: 200;
+      color: #cfcfcf;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      outline: none;
+      transition: all 0.05s ease-in-out;
+      &:focus {
+        border: 1px solid rgba(0, 0, 0, 0.3);
+      }
+
+      &::placeholder {
+        color: #cfcfcf;
+        font-size: 18px;
+        font-weight: 200;
+      }
+    }
+
+    > button {
+      font-weight: 600;
+      font-size: 14px;
+      width: 149px;
+      height: 52px;
+      padding: 18px 24px;
+      border-radius: 10px;
+      background: $greens;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.32s ease-in-out;
+      &:hover {
+        background: #504b4a;
+        cursor: pointer;
+      }
+    }
+  }
+}

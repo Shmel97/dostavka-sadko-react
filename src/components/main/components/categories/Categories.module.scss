@@ -1,0 +1,37 @@
+@import '../../../../styles/variables';
+
+.categories {
+  margin: auto;
+  max-width: 1440px;
+  height: 78px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 80px;
+  > li {
+    list-style-type: none;
+    font-weight: 200;
+    font-size: 18px;
+    color: #cfcfcf;
+    cursor: pointer;
+    transition: all 0.12s ease-in-out;
+  }
+  > .active {
+    color: #fff;
+    font-weight: 400;
+    text-shadow: 0px 5px 12px rgba(114, 164, 121, 0.3);
+  }
+
+  > .block {
+    width: 153px;
+    height: 3px;
+    background: #618967;
+    box-shadow: 0px 5px 12px rgba(114, 164, 121, 0.3);
+  }
+}
+
+.line {
+  width: 1440px;
+  height: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
