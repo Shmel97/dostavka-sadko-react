@@ -2,12 +2,25 @@
 
 .categories {
   margin: auto;
-  max-width: 1440px;
+  @media (max-width: 960px) {
+    width: 100%;
+    overflow: scroll;
+    ul {
+      width: 960px;
+    }
+  }
+}
+
+.categories > ul {
+  margin: auto;
   height: 78px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 80px;
+  @media (max-width: 1200px) {
+    margin: 0 20px;
+  }
   > li {
     list-style-type: none;
     font-weight: 200;
@@ -31,7 +44,6 @@
 }
 
 .line {
-  width: 1440px;
   height: 0px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }

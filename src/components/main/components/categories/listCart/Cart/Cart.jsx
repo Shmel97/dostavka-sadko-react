@@ -1,8 +1,24 @@
 import React from 'react';
 import { BiBasket } from 'react-icons/bi';
 import styles from './Cart.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItems } from '../../../../../../redux/slices/basketSlice';
 
-function Cart({ imageUrl, title, description, weight, price, category, categoriesActive }) {
+function Cart({ imageUrl, title, description, weight, price, category, categoriesActive, id }) {
+  const cartItem = useSelector((state) => state.basket.items.find((obj) => obj.id === id));
+  const dispatch = useDispatch();
+  const addedCount = cartItem ? cartItem.count : 0;
+  const onClickAdd = () => {
+    const item = {
+      id,
+      imageUrl,
+      title,
+      description,
+      price,
+    };
+    dispatch(addItems(item));
+  };
+
   if (category === categoriesActive) {
     return (
       <div className={styles.cart}>
@@ -18,9 +34,9 @@ function Cart({ imageUrl, title, description, weight, price, category, categorie
         </div>
         <div className={styles.price}>
           <h2>{price} ₽</h2>
-          <button>
+          <button onClick={onClickAdd}>
             В корзину
-            <BiBasket className={styles.basket} />
+            {addedCount > 0 ? <p>{addedCount}</p> : <BiBasket className={styles.basket} />}
           </button>
         </div>
       </div>

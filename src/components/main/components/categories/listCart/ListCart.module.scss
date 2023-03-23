@@ -26,9 +26,26 @@
   }
 }
 
-.carts {
-  display: flex;
-  flex-wrap: wrap;
+//Удалил базовый начальный отступ слева, который мне мешал
+ul {
+  padding: 0;
+}
 
+.carts {
+  margin: 0 10px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 25px;
   list-style-type: none;
+  @media (max-width: 1400px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 1065px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 730px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

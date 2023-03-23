@@ -2,8 +2,9 @@ import React from 'react';
 import { categoriesName } from '../Categories';
 import Cart from './Cart/Cart';
 import styles from './ListCart.module.scss';
+import Skeleton from './Skeleton/Skeleton';
 
-const products = [
+/*const products = [
   {
     id: '0',
     imageUrl:
@@ -136,39 +137,46 @@ const products = [
     price: 510,
     category: 2,
   },
-];
+];*/
 
-function ListCart({ categoriesActive }) {
-  const [items, setItems] = React.useState([]);
-  React.useEffect(() => {
-    fetch(`https://63cc2abe9b72d2a88e0948dc.mockapi.io/products`)
-      .then((res) => res.json())
-      .then((arr) => {
-        setItems(arr);
-      });
-  }, []);
-
+function ListCart({ categoriesActive, items, status }) {
   return (
     <div className={styles.listcart}>
       <div>
         <div className={styles.line}></div>
         <h1>{categoriesName[categoriesActive]}</h1>
       </div>
-      <ul className={styles.carts}>
-        {items.map((product) => (
-          <li key={product.id}>
-            <Cart
-              imageUrl={product.imageUrl}
-              title={product.title}
-              description={product.description}
-              weight={product.weight}
-              price={product.price}
-              category={product.category}
-              categoriesActive={categoriesActive}
-            />
-          </li>
-        ))}
-      </ul>
+      {status === 'error' ? (
+        <div>
+          <h2>
+            Произошла ошибка загрузки товаров <span>😕</span>
+          </h2>
+          <p>
+            Пожалуйста, зайдите чуть позже.
+            <br />
+            Ведутся тех. работы...
+          </p>
+        </div>
+      ) : (
+        <ul className={styles.carts}>
+          {status === 'loading'
+            ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+            : items.map((product) => (
+                <li key={product.id}>
+                  <Cart
+                    id={product.id}
+                    imageUrl={product.imageUrl}
+                    title={product.title}
+                    description={product.description}
+                    weight={product.weight}
+                    price={product.price}
+                    category={product.category}
+                    categoriesActive={categoriesActive}
+                  />
+                </li>
+              ))}
+        </ul>
+      )}
     </div>
   );
 }
