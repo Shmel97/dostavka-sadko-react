@@ -10,7 +10,7 @@ function Login() {
     password: '',
   });
 
-  const onSubmit = async (event) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const resp = await fetch(
       `https://mentor.archakov.im/api/mock/login?email=${fields.email}&password=${fields.password}`,
@@ -25,7 +25,7 @@ function Login() {
     }
   };
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFields({
       ...fields,
       [e.target.name]: e.target.value,
@@ -50,9 +50,7 @@ function Login() {
           value={fields.password}
           placeholder="Пароль"
         />
-        <button variant="primary" type="submit">
-          Войти
-        </button>
+        <button type="submit">Войти</button>
       </form>
     </div>
   );

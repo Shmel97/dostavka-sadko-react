@@ -2,16 +2,34 @@ import React from 'react';
 import styles from './BasketItem.module.scss';
 import { AiFillPlusCircle, AiFillMinusCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
-import { addItems, minusItem, removeItem } from '../../../redux/slices/basketSlice';
-const BasketItem = ({ id, title, description, imageUrl, price, count }) => {
+import { addItems, minusItem, removeItem } from '../../../redux/basket/slice';
+import { BasketItem } from '../../../redux/basket/types';
+
+type BasketItemProps = {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  price: number;
+  count: number;
+};
+
+const BasketItemBlock: React.FC<BasketItemProps> = ({
+  id,
+  title,
+  description,
+  imageUrl,
+  price,
+  count,
+}) => {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItems({ id }));
+    dispatch(addItems({ id } as BasketItem));
   };
 
   const onClickMinus = () => {
-    dispatch(minusItem({ id }));
+    dispatch(minusItem(id));
   };
 
   const onClickRemove = () => {
@@ -29,9 +47,16 @@ const BasketItem = ({ id, title, description, imageUrl, price, count }) => {
           <p>{description}</p>
         </div>
         <div className={styles.quantity}>
-          <AiFillMinusCircle onClick={onClickMinus} color="#72A479" className={styles.plus} />
+          <button disabled={count === 1} onClick={onClickMinus}>
+            <AiFillMinusCircle
+              color="#72A479"
+              className={`${styles.plus} ${count === 1 ? styles.disabled : ''}`}
+            />
+          </button>
           <p>{count}</p>
-          <AiFillPlusCircle onClick={onClickPlus} color="#72A479" className={styles.plus} />
+          <button onClick={onClickPlus}>
+            <AiFillPlusCircle className={styles.plus} />
+          </button>
         </div>
         <div className={styles.summ}>
           <p>{price * count} ₽</p>
@@ -42,4 +67,4 @@ const BasketItem = ({ id, title, description, imageUrl, price, count }) => {
   );
 };
 
-export default BasketItem;
+export default BasketItemBlock;

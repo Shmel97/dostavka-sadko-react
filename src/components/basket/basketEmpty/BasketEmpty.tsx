@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import cartEmptyImg from '../../../image/empty-cart.png';
 import styles from './BasketEmpty.module.scss';
 
-const BasketEmpty = () => {
+const BasketEmpty: React.FC = () => {
   return (
     <>
       <div className={styles.basket}>

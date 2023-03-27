@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Main.module.scss';
 import main_banner from '../../image/main_banner.jpg';
 

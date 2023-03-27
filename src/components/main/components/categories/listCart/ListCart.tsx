@@ -139,7 +139,13 @@ import Skeleton from './Skeleton/Skeleton';
   },
 ];*/
 
-function ListCart({ categoriesActive, items, status }) {
+type ListCartProps = {
+  categoriesActive: number;
+  items: any;
+  status: string;
+};
+
+const ListCart: React.FC<ListCartProps> = ({ categoriesActive, items, status }) => {
   return (
     <div className={styles.listcart}>
       <div>
@@ -161,7 +167,7 @@ function ListCart({ categoriesActive, items, status }) {
         <ul className={styles.carts}>
           {status === 'loading'
             ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-            : items.map((product) => (
+            : items.map((product: any) => (
                 <li key={product.id}>
                   <Cart
                     id={product.id}
@@ -179,6 +185,6 @@ function ListCart({ categoriesActive, items, status }) {
       )}
     </div>
   );
-}
+};
 
 export default ListCart;

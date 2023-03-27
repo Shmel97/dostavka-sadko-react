@@ -41,13 +41,29 @@
     display: flex;
     align-items: center;
     margin-left: 230px;
-    > .plus {
-      cursor: pointer;
-      width: 1.4em;
-      height: 1.4em;
-      &:hover {
-        background-color: #fff;
-        border-radius: 20px;
+    > button {
+      background: none;
+      border: none;
+      > .plus {
+        cursor: pointer;
+        color: #72a479;
+        width: 25px;
+        height: 25px;
+        &:hover {
+          background-color: #fff;
+          border-radius: 20px;
+        }
+        &:active {
+          background-color: #a6a7ab;
+        }
+      }
+      > .disabled {
+        opacity: 0.3;
+        cursor: default;
+        &:hover {
+          background: none;
+          border-radius: 0;
+        }
       }
     }
     > p {
@@ -74,6 +90,9 @@
     &:hover {
       background-color: #fff;
       border-radius: 20px;
+    }
+    &:active {
+      background-color: #a6a7ab;
     }
   }
 }

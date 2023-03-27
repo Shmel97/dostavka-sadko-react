@@ -2,19 +2,42 @@ import React from 'react';
 import { BiBasket } from 'react-icons/bi';
 import styles from './Cart.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItems } from '../../../../../../redux/slices/basketSlice';
+import { addItems } from '../../../../../../redux/basket/slice';
+import { basketItemsId } from '../../../../../../redux/basket/selectors';
+import { BasketItem } from '../../../../../../redux/basket/types';
 
-function Cart({ imageUrl, title, description, weight, price, category, categoriesActive, id }) {
-  const cartItem = useSelector((state) => state.basket.items.find((obj) => obj.id === id));
+type CartProps = {
+  imageUrl: string;
+  title: string;
+  description: string;
+  weight: string;
+  price: number;
+  category: number;
+  categoriesActive: number;
+  id: string;
+};
+
+const Cart: React.FC<CartProps> = ({
+  imageUrl,
+  title,
+  description,
+  weight,
+  price,
+  category,
+  categoriesActive,
+  id,
+}) => {
+  const cartItem = useSelector(basketItemsId(id));
   const dispatch = useDispatch();
   const addedCount = cartItem ? cartItem.count : 0;
   const onClickAdd = () => {
-    const item = {
+    const item: BasketItem = {
       id,
       imageUrl,
       title,
       description,
       price,
+      count: 0,
     };
     dispatch(addItems(item));
   };
@@ -41,7 +64,9 @@ function Cart({ imageUrl, title, description, weight, price, category, categorie
         </div>
       </div>
     );
+  } else {
+    return null;
   }
-}
+};
 
 export default Cart;

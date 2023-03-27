@@ -1,12 +1,16 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setCategoryActive, setFilters } from '../../../../redux/slices/categorySlice';
+import { useSelector } from 'react-redux';
+import { setCategoryActive, setFilters } from '../../../../redux/category/slice';
 import { useNavigate } from 'react-router-dom';
 import styles from './Categories.module.scss';
 import ListCart from './listCart/ListCart';
 
 import qs from 'qs';
-import { fetchProducts } from '../../../../redux/slices/productSlice';
+import { products } from '../../../../redux/product/selectors';
+import { useAppDispatch } from '../../../../redux/store';
+import { categoryActive } from '../../../../redux/category/selectors';
+import { CategorySliceState } from '../../../../redux/category/types';
+import { fetchProducts } from '../../../../redux/product/asyncActions';
 export const categoriesName = [
   'Роллы и суши',
   'WOK Лапша',
@@ -22,12 +26,12 @@ function Categories() {
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false); // - Начального первого рендера не было еще (false)
 
-  const categoriesActive = useSelector((state) => state.category.categoryActive);
-  const { items, status } = useSelector((state) => state.product);
+  const categoriesActive = useSelector(categoryActive);
+  const { items, status } = useSelector(products);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const fetchItems = async () => {
-    dispatch(fetchProducts({ categoriesActive }));
+    dispatch(fetchProducts(categoriesActive));
   };
 
   React.useEffect(() => {
@@ -46,11 +50,11 @@ function Categories() {
   //Здесь я беру данные из строки url и превращаю в обьект с помощью библиотеки qs, далее этот обьект с данными передаю в redax. Всё это при первом рендере!
   React.useEffect(() => {
     if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
+      const params = qs.parse(window.location.search.substring(1)) as unknown as CategorySliceState;
       console.log(params);
       dispatch(
         setFilters({
-          ...params,
+          categoryActive: Number(params.categoryActive),
         }),
       );
       isSearch.current = true;
@@ -63,7 +67,7 @@ function Categories() {
     isSearch.current = false;
   }, [categoriesActive]);
 
-  const onChangeCategory = (i) => {
+  const onChangeCategory = (i: number) => {
     dispatch(setCategoryActive(i));
   };
 

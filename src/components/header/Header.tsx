@@ -4,14 +4,16 @@ import { FaPhoneAlt } from 'react-icons/fa';
 import logo from '../../image/logo.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { basketItems } from '../../redux/basket/selectors';
 
 function Header() {
-  const { totalPrice } = useSelector((state) => state.basket);
-  const [isAuth, setIsAuth] = React.useState(false);
-  const menuRef = React.useRef();
+  const { items, totalPrice } = useSelector(basketItems);
+  const [isAuth, setIsAuth] = React.useState<boolean>(false);
+  const menuRef = React.useRef<HTMLDivElement>(null);
   const [menuHamburger, setMenuHamburger] = React.useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const isMounted = React.useRef(false);
 
   React.useEffect(() => {
     if (window.localStorage.getItem('token')) {
@@ -36,8 +38,8 @@ function Header() {
   };
 
   React.useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.composedPath().includes(menuRef.current)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !event.composedPath().includes(menuRef.current)) {
         setMenuHamburger(false);
       }
     };
@@ -46,6 +48,15 @@ function Header() {
       document.body.removeEventListener('click', handleClickOutside);
     };
   }, []);
+
+  React.useEffect(() => {
+    //Добавил сюда useRef, чтобы при перезагрузке он не стирал массив
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('basket', json);
+    }
+    isMounted.current = true;
+  }, [items]);
 
   return (
     <div className={styles.header}>
