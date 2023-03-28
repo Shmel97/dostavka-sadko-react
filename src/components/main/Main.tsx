@@ -1,6 +1,5 @@
 import styles from './Main.module.scss';
 import main_banner from '../../image/main_banner.jpg';
-
 import Categories from './components/categories/Categories';
 
 function Main() {

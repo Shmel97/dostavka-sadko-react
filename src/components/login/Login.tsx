@@ -6,8 +6,8 @@ import styles from './Login.module.scss';
 function Login() {
   const navigate = useNavigate();
   const [fields, setFields] = React.useState({
-    email: '',
-    password: '',
+    email: 'test@test.ru',
+    password: '123456',
   });
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
