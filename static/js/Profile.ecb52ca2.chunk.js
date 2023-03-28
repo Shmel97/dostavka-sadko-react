@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdostavka_sadko_react=self.webpackChunkdostavka_sadko_react||[]).push([[97],{9038:function(e,a,r){r.r(a),r.d(a,{default:function(){return s}});r(2791);var t=r(7689),o={profile:"Profile_profile__D0T3F"},n=r(184);var s=function(){return window.localStorage.getItem("token")?(0,n.jsx)("div",{className:o.profile,children:(0,n.jsx)("h1",{children:"PROFILE"})}):(0,n.jsx)(t.Fg,{to:"/"})}}}]);
+//# sourceMappingURL=Profile.ecb52ca2.chunk.js.map
