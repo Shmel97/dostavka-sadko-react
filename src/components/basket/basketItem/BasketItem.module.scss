@@ -2,29 +2,57 @@
   background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
   border-radius: 10px;
   width: 1096px;
-  min-height: 126px;
-  margin: 0 auto 30px auto;
+  height: auto;
+  margin: 30px auto 30px auto;
   padding: 20px;
+  @media (max-width: 1200px) {
+    width: 900px;
+  }
+  @media (max-width: 900px) {
+    width: 700px;
+    padding: 10px;
+  }
+  @media (max-width: 720px) {
+    width: 500px;
+    padding: 0px;
+    height: auto;
+  }
+  @media (max-width: 520px) {
+    width: 300px;
+    padding: 5px 0;
+  }
   .tovar {
+    
     display: flex;
     align-items: center;
+    @media (max-width: 720px) {
+      justify-content: space-evenly;
+    }
   }
   .cartImage {
     width: 117px;
     height: 86px;
-
-    overflow: hidden;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
     > img {
+      border-radius: 10px;
       object-fit: cover;
       height: 100%;
       width: auto;
     }
   }
+
   .descr {
     margin-left: 39px;
+    @media (max-width: 900px) {
+      margin-left: 20px;
+    }
+    @media (max-width: 720px) {
+      display: none;
+    }
   }
   .descr > h2 {
     font-size: 18px;
@@ -36,11 +64,24 @@
     color: #a6a7ab;
     width: 265px;
     padding: 0;
+    @media (max-width: 900px) {
+      width: 200px;
+    }
   }
+
   .quantity {
     display: flex;
     align-items: center;
     margin-left: 230px;
+    @media (max-width: 1200px) {
+      margin-left: 130px;
+    }
+    @media (max-width: 900px) {
+      margin-left: 40px;
+    }
+    @media (max-width: 720px) {
+      display: none;
+    }
     > button {
       background: none;
       border: none;
@@ -76,6 +117,15 @@
     margin-left: 130px;
     display: flex;
     align-items: center;
+    @media (max-width: 1200px) {
+      margin-left: 65px;
+    }
+    @media (max-width: 900px) {
+      margin-left: 35px;
+    }
+    @media (max-width: 720px) {
+      display: none;
+    }
     > p {
       font-size: 20px;
       font-weight: 500;
@@ -84,9 +134,118 @@
   .close {
     width: 1.4em;
     height: 1.4em;
-
     cursor: pointer;
     margin-left: 80px;
+    @media (max-width: 1200px) {
+      margin-left: 40px;
+    }
+    @media (max-width: 900px) {
+      margin-left: 50px;
+    }
+    @media (max-width: 720px) {
+      display: none;
+    }
+    &:hover {
+      background-color: #fff;
+      border-radius: 20px;
+    }
+    &:active {
+      background-color: #a6a7ab;
+    }
+  }
+}
+
+.maxwidth {
+  display: none;
+  @media (max-width: 720px) {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    padding: 0;
+  }
+  .verx {
+    > .verx_descr {
+      > h2 {
+        font-size: 18px;
+        @media (max-width: 520px) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .niz {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-top: -10px;
+    > .niz_quantity {
+      display: flex;
+      align-items: center;
+      > button {
+        background: none;
+        border: none;
+        > .plus {
+          cursor: pointer;
+          color: #72a479;
+          width: 25px;
+          height: 25px;
+          @media (max-width: 520px) {
+            width: 18px;
+            height: 18px;
+          }
+          &:hover {
+            background-color: #fff;
+            border-radius: 20px;
+          }
+          &:active {
+            background-color: #a6a7ab;
+          }
+        }
+        > .disabled {
+          opacity: 0.3;
+          cursor: default;
+          &:hover {
+            background: none;
+            border-radius: 0;
+          }
+        }
+      }
+      > p {
+        margin: 0 12px;
+        font-size: 20px;
+        font-weight: 500;
+        @media (max-width: 520px) {
+          font-size: 12px;
+          margin: 0 3px;
+        }
+      }
+    }
+  }
+  .niz_summ {
+    display: flex;
+    align-items: center;
+    margin-left: 70px;
+    @media (max-width: 520px) {
+      margin-left: 20px;
+    }
+    > p {
+      font-size: 20px;
+      font-weight: 500;
+      @media (max-width: 520px) {
+        font-size: 12px;
+      }
+    }
+  }
+  .niz_close {
+    width: 1.4em;
+    height: 1.4em;
+    cursor: pointer;
+    margin-left: 10px;
+    @media (max-width: 520px) {
+      width: 18px;
+      height: 18px;
+    }
+
     &:hover {
       background-color: #fff;
       border-radius: 20px;

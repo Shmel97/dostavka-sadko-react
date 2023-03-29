@@ -91,9 +91,10 @@ function Header() {
       </button>
       <Link className={styles.link} to="/basket">
         <button>
-          Корзина
+          <p className={styles.basket}>Корзина</p>
           <div className={styles.line}></div>
-          <p>{totalPrice} ₽</p>
+          <p className={styles.total}>{totalPrice}</p>
+          <p className={styles.rubles}>₽</p>
         </button>
       </Link>
     </div>

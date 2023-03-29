@@ -9,6 +9,10 @@
     margin: 50px 0 50px 115px;
     display: flex;
     align-items: center;
+    @media (max-width: 1200px) {
+      justify-content: center;
+      margin: 70px auto;
+    }
   }
 
   > div > h1 {

@@ -15,7 +15,7 @@ const Basket: React.FC = () => {
         <div className={styles.line}></div>
         <h1>КОРЗИНА</h1>
       </div>
-      {items.map((item: any) => (
+      {items.map((item) => (
         <BasketItem key={item.id} {...item} />
       ))}
       <div className={styles.total}>
@@ -24,9 +24,9 @@ const Basket: React.FC = () => {
             Итого: <p className={styles.itogo}>{totalPrice} ₽</p>
           </h3>
           <h3>
-            До бесплатной доставки не хватет: <p>100 ₽</p>
+            До бесплатной доставки не хватает: <p>{totalPrice > 800 ? '0₽' : 800 - totalPrice + '₽'}</p>
           </h3>
-          <h3>Минимальная сума заказа 1500 ₽</h3>
+          <h3>Минимальная сума заказа 800 ₽</h3>
         </div>
         <button>Оформить заказ</button>
       </div>

@@ -6,6 +6,10 @@
     margin: 70px 0 70px 300px;
     display: flex;
     align-items: center;
+    @media (max-width: 1200px) {
+      justify-content: center;
+      margin: 70px auto;
+    }
   }
   > div > h1 {
     font-size: 32px;
@@ -29,15 +33,32 @@
     padding-left: 39px;
     display: flex;
     align-items: center;
+    @media (max-width: 900px) {
+      width: 500px;
+    }
+    @media (max-width: 720px) {
+      width: 300px;
+      flex-direction: column;
+      margin: 0 auto 30px auto;
+      padding: 10px;
+      height: auto;
+    }
 
     > .text {
       height: 190px;
+      @media (max-width: 720px) {
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
     }
     > .text > h3 {
       display: flex;
       align-items: center;
       font-size: 18px;
       font-weight: 500;
+      
       > .itogo {
         margin-left: 5px;
         font-size: 25px;
@@ -47,6 +68,11 @@
         color: #a6a7ab;
         margin-top: 37px;
         margin-bottom: -35px;
+        @media (max-width: 720px) {
+          margin: 0;
+          margin-bottom: -30px;
+          margin-top: -20px;
+        }
       }
       > &:nth-child(2) {
         font-size: 12px;
@@ -61,6 +87,10 @@
         font-size: 12px;
         font-weight: 300;
         margin: -5px 0;
+        @media (max-width: 720px) {
+          margin: 0;
+          margin-bottom: 15px;
+        }
       }
     }
     > button {
@@ -75,6 +105,16 @@
       color: #fff;
       font-weight: 700;
       font-size: 14px;
+      @media (max-width: 900px) {
+        width: 160px;
+        margin-left: 35px;
+      }
+      @media (max-width: 720px) {
+        margin-left: 0;
+        margin-bottom: 5px;
+        height: 45px;
+        font-weight: 600;
+      }
       &:hover {
         box-shadow: 0px 5px 12px rgba(114, 164, 121, 0.3);
       }

@@ -22,9 +22,9 @@ export const categoriesName = [
   'Напитки',
 ];
 function Categories() {
-  const navigate = useNavigate();
-  const isSearch = React.useRef(false);
-  const isMounted = React.useRef(false); // - Начального первого рендера не было еще (false)
+  //const navigate = useNavigate();
+  //const isSearch = React.useRef(false);
+  //const isMounted = React.useRef(false); // - Начального первого рендера не было еще (false)
 
   const categoriesActive = useSelector(categoryActive);
   const { items, status } = useSelector(products);
@@ -34,7 +34,7 @@ function Categories() {
     dispatch(fetchProducts(categoriesActive));
   };
 
-  React.useEffect(() => {
+  /*React.useEffect(() => {
     //Если первого рендера не было, тогда не надо вшивать параметры в адресную строчку.
     //А если был ранее рендер, то только тогда нужно эти параметры вшивать в адресную строчку, если то что в скобках [] поменялось
     if (isMounted.current) {
@@ -45,10 +45,10 @@ function Categories() {
       navigate(`?${queryString}`);
     }
     isMounted.current = true;
-  }, [categoriesActive]);
+  }, [categoriesActive]);*/
 
   //Здесь я беру данные из строки url и превращаю в обьект с помощью библиотеки qs, далее этот обьект с данными передаю в redax. Всё это при первом рендере!
-  React.useEffect(() => {
+  /*React.useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1)) as unknown as CategorySliceState;
       console.log(params);
@@ -59,12 +59,10 @@ function Categories() {
       );
       isSearch.current = true;
     }
-  }, []);
+  }, []);*/
 
   React.useEffect(() => {
     fetchItems();
-
-    isSearch.current = false;
   }, [categoriesActive]);
 
   const onChangeCategory = (i: number) => {

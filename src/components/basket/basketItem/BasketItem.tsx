@@ -46,6 +46,31 @@ const BasketItemBlock: React.FC<BasketItemProps> = ({
           <h2>{title}</h2>
           <p>{description}</p>
         </div>
+        <div className={styles.maxwidth}>
+          <div className={styles.verx}>
+            <div className={styles.verx_descr}>
+              <h2>{title}</h2>
+            </div>
+          </div>
+          <div className={styles.niz}>
+            <div className={styles.niz_quantity}>
+              <button disabled={count === 1} onClick={onClickMinus}>
+                <AiFillMinusCircle
+                  color="#72A479"
+                  className={`${styles.plus} ${count === 1 ? styles.disabled : ''}`}
+                />
+              </button>
+              <p>{count}</p>
+              <button onClick={onClickPlus}>
+                <AiFillPlusCircle className={styles.plus} />
+              </button>
+            </div>
+            <div className={styles.niz_summ}>
+              <p>{price * count} ₽</p>
+            </div>
+            <AiFillCloseCircle onClick={onClickRemove} color="#72A479" className={styles.niz_close} />
+          </div>
+        </div>
         <div className={styles.quantity}>
           <button disabled={count === 1} onClick={onClickMinus}>
             <AiFillMinusCircle
