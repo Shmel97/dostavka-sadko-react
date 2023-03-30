@@ -1,30 +1,30 @@
 {
   "files": {
     "main.css": "/dostavka-sadko-react/static/css/main.6a3ce608.css",
-    "main.js": "/dostavka-sadko-react/static/js/main.eecd21ee.js",
+    "main.js": "/dostavka-sadko-react/static/js/main.b734bc32.js",
     "Basket.css": "/dostavka-sadko-react/static/css/Basket.ffb16ba8.chunk.css",
     "Basket.js": "/dostavka-sadko-react/static/js/Basket.f8e2b4a3.chunk.js",
     "Profile.css": "/dostavka-sadko-react/static/css/Profile.d67c5276.chunk.css",
     "Profile.js": "/dostavka-sadko-react/static/js/Profile.ecb52ca2.chunk.js",
     "Login.css": "/dostavka-sadko-react/static/css/Login.7db4096e.chunk.css",
-    "Login.js": "/dostavka-sadko-react/static/js/Login.b21b1088.chunk.js",
+    "Login.js": "/dostavka-sadko-react/static/js/Login.4d9ac669.chunk.js",
     "static/js/820.38c6c1e7.chunk.js": "/dostavka-sadko-react/static/js/820.38c6c1e7.chunk.js",
     "static/media/main_banner.jpg": "/dostavka-sadko-react/static/media/main_banner.cdd7fb77ad00f69fda29.jpg",
     "static/media/empty-cart.png": "/dostavka-sadko-react/static/media/empty-cart.db905d1f4b063162f25b.png",
     "static/media/logo.png": "/dostavka-sadko-react/static/media/logo.64fb3a0c00cfd0193df3.png",
     "index.html": "/dostavka-sadko-react/index.html",
     "main.6a3ce608.css.map": "/dostavka-sadko-react/static/css/main.6a3ce608.css.map",
-    "main.eecd21ee.js.map": "/dostavka-sadko-react/static/js/main.eecd21ee.js.map",
+    "main.b734bc32.js.map": "/dostavka-sadko-react/static/js/main.b734bc32.js.map",
     "Basket.ffb16ba8.chunk.css.map": "/dostavka-sadko-react/static/css/Basket.ffb16ba8.chunk.css.map",
     "Basket.f8e2b4a3.chunk.js.map": "/dostavka-sadko-react/static/js/Basket.f8e2b4a3.chunk.js.map",
     "Profile.d67c5276.chunk.css.map": "/dostavka-sadko-react/static/css/Profile.d67c5276.chunk.css.map",
     "Profile.ecb52ca2.chunk.js.map": "/dostavka-sadko-react/static/js/Profile.ecb52ca2.chunk.js.map",
     "Login.7db4096e.chunk.css.map": "/dostavka-sadko-react/static/css/Login.7db4096e.chunk.css.map",
-    "Login.b21b1088.chunk.js.map": "/dostavka-sadko-react/static/js/Login.b21b1088.chunk.js.map",
+    "Login.4d9ac669.chunk.js.map": "/dostavka-sadko-react/static/js/Login.4d9ac669.chunk.js.map",
     "820.38c6c1e7.chunk.js.map": "/dostavka-sadko-react/static/js/820.38c6c1e7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6a3ce608.css",
-    "static/js/main.eecd21ee.js"
+    "static/js/main.b734bc32.js"
   ]
 }
