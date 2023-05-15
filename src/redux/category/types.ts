@@ -1,5 +1,17 @@
+export type CategorySelect = {
+  id: number;
+  title: string;
+  slug: string;
+};
+
+export enum Status {
+  LOADING = 'loading',
+  SUCCES = 'success',
+  ERROR = 'error',
+}
+
 export interface CategorySliceState {
-    categoryActive: number;
-  }
-  
-  
+  items: CategorySelect[];
+  categoryActive: string;
+  status: Status;
+}

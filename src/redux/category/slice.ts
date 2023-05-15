@@ -1,23 +1,37 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CategorySliceState } from "./types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CategorySliceState, Status } from './types';
+import { fetchCategories } from './asyncActions';
 
 const initialState: CategorySliceState = {
-    categoryActive: 0,
-  };
+  items: [],
+  categoryActive: "rolly-i-sushi",
+  status: Status.LOADING,
+};
 
 export const categorySlice = createSlice({
-    name: 'category',
-    initialState,
-    reducers: {
-      setCategoryActive(state, action: PayloadAction<number>) {
-        state.categoryActive = action.payload;
-      },
-      setFilters(state, action: PayloadAction<CategorySliceState>) {
-        state.categoryActive = Number(action.payload.categoryActive);
-      },
+  name: 'category',
+  initialState,
+  reducers: {
+    setCategoryActive(state, action: PayloadAction<string>) {
+      state.categoryActive = action.payload;
     },
-  });
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchCategories.pending, (state, action) => {
+      state.status = Status.LOADING;
+      state.items = [];
+    });
+    builder.addCase(fetchCategories.fulfilled, (state, action) => {
+      state.items = action.payload;
+      state.status = Status.SUCCES;
+    });
+    builder.addCase(fetchCategories.rejected, (state, action) => {
+      state.status = Status.ERROR;
+      state.items = [];
+    });
+  },
+});
 
-  export const { setCategoryActive, setFilters } = categorySlice.actions;
+export const { setCategoryActive } = categorySlice.actions;
 
 export default categorySlice.reducer;

@@ -5,6 +5,7 @@ import logo from '../../image/logo.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { basketItems } from '../../redux/basket/selectors';
+import Button from '@mui/material/Button';
 
 function Header() {
   const { items, totalPrice } = useSelector(basketItems);
@@ -89,6 +90,7 @@ function Header() {
       <button className={styles.login} onClick={() => handleClickAuth()}>
         {isAuth ? 'Выйти' : 'Войти'}
       </button>
+      
       <Link className={styles.link} to="/basket">
         <button>
           <p className={styles.basket}>Корзина</p>

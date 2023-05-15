@@ -6,8 +6,8 @@ import styles from './Login.module.scss';
 function Login() {
   const navigate = useNavigate();
   const [fields, setFields] = React.useState({
-    email: 'test@test.ru',
-    password: '123456',
+    email: '',
+    password: '',
   });
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -41,14 +41,14 @@ function Login() {
           onChange={handleChangeInput}
           name="email"
           value={fields.email}
-          placeholder="Почта"
+          placeholder="Почта: test@test.ru"
         />
         <input
           type="password"
           onChange={handleChangeInput}
           name="password"
           value={fields.password}
-          placeholder="Пароль"
+          placeholder="Пароль: 123456"
         />
         <button type="submit">Войти</button>
       </form>

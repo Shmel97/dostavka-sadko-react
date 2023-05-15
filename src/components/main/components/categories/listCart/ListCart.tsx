@@ -1,8 +1,9 @@
 import React from 'react';
-import { categoriesName } from '../Categories';
+
 import Cart from './Cart/Cart';
 import styles from './ListCart.module.scss';
 import Skeleton from './Skeleton/Skeleton';
+import { CategorySelect } from '../../../../../redux/category/types';
 
 /*const products = [
   {
@@ -140,17 +141,25 @@ import Skeleton from './Skeleton/Skeleton';
 ];*/
 
 type ListCartProps = {
-  categoriesActive: number;
+  categoriesActive: string;
   items: any;
   status: string;
+  categoriesItems: CategorySelect[];
 };
 
-const ListCart: React.FC<ListCartProps> = ({ categoriesActive, items, status }) => {
+const ListCart: React.FC<ListCartProps> = ({
+  categoriesActive,
+  items,
+  status,
+  categoriesItems,
+}) => {
+  const categoryItem = categoriesItems.find((item) => item.slug === categoriesActive);
+  const title = categoryItem?.title;
   return (
     <div className={styles.listcart}>
       <div>
         <div className={styles.line}></div>
-        <h1>{categoriesName[categoriesActive]}</h1>
+        <h1>{title}</h1>
       </div>
       {status === 'error' ? (
         <div>
@@ -171,13 +180,11 @@ const ListCart: React.FC<ListCartProps> = ({ categoriesActive, items, status }) 
                 <li key={product.id}>
                   <Cart
                     id={product.id}
-                    imageUrl={product.imageUrl}
+                    imageUrl={product.images}
                     title={product.title}
                     description={product.description}
                     weight={product.weight}
                     price={product.price}
-                    category={product.category}
-                    categoriesActive={categoriesActive}
                   />
                 </li>
               ))}

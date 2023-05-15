@@ -29,10 +29,11 @@ export const basketSlice = createSlice({
     },
     minusItem(state, action: PayloadAction<string>) {
       const findItem = state.items.find((item) => item.id === action.payload);
-      console.log(findItem);
+
       if (findItem) {
         findItem.count--;
       }
+      state.totalPrice = calcTotalPrice(state.items);
     },
     removeItem(state, action: PayloadAction<string>) {
       state.items = state.items.filter((obj) => obj.id !== action.payload);

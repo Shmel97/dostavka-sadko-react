@@ -2,7 +2,7 @@ export type BasketItem = {
     id: string;
     title: string;
     description: string;
-    imageUrl: string;
+    imageUrl: { image_url: string }[];
     price: number;
     count: number;
   };

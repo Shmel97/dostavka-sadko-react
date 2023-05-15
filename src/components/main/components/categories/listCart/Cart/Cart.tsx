@@ -5,15 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addItems } from '../../../../../../redux/basket/slice';
 import { basketItemsId } from '../../../../../../redux/basket/selectors';
 import { BasketItem } from '../../../../../../redux/basket/types';
+import { baseUrl } from '../../Categories';
 
 type CartProps = {
-  imageUrl: string;
+  imageUrl: { image_url: string }[];
   title: string;
   description: string;
   weight: string;
   price: number;
-  category: number;
-  categoriesActive: number;
   id: string;
 };
 
@@ -23,8 +22,6 @@ const Cart: React.FC<CartProps> = ({
   description,
   weight,
   price,
-  category,
-  categoriesActive,
   id,
 }) => {
   const cartItem = useSelector(basketItemsId(id));
@@ -42,11 +39,11 @@ const Cart: React.FC<CartProps> = ({
     dispatch(addItems(item));
   };
 
-  if (category === categoriesActive) {
+    
     return (
       <div className={styles.cart}>
         <div className={styles.cartImage}>
-          <img src={imageUrl} alt="food" />
+          <img src={baseUrl + imageUrl[0]?.image_url} alt="food" />
         </div>
         <div className={styles.cartText}>
           <div className={styles.name}>
@@ -64,9 +61,7 @@ const Cart: React.FC<CartProps> = ({
         </div>
       </div>
     );
-  } else {
-    return null;
-  }
+  
 };
 
 export default Cart;

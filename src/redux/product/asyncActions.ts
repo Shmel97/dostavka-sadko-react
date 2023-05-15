@@ -4,9 +4,9 @@ import { Product } from "./types";
 
 export const fetchProducts = createAsyncThunk(
     'product/fetchProductsStatus',
-    async (categoriesActive: number) => {
+    async (categoriesActive: string) => {
       const { data } = await axios.get<Product[]>(
-        `https://63cc2abe9b72d2a88e0948dc.mockapi.io/products?category=${categoriesActive}`,
+        `http://165.227.222.89/menu/category/${categoriesActive}`,
       );
       return data as Product[];
     },

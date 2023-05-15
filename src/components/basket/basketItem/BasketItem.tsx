@@ -4,12 +4,13 @@ import { AiFillPlusCircle, AiFillMinusCircle, AiFillCloseCircle } from 'react-ic
 import { useDispatch } from 'react-redux';
 import { addItems, minusItem, removeItem } from '../../../redux/basket/slice';
 import { BasketItem } from '../../../redux/basket/types';
+import { baseUrl } from '../../main/components/categories/Categories';
 
 type BasketItemProps = {
   id: string;
   title: string;
   description: string;
-  imageUrl: string;
+  imageUrl: { image_url: string }[];
   price: number;
   count: number;
 };
@@ -40,7 +41,7 @@ const BasketItemBlock: React.FC<BasketItemProps> = ({
     <div className={styles.cart}>
       <div className={styles.tovar}>
         <div className={styles.cartImage}>
-          <img src={imageUrl} alt="food" />
+          <img src={baseUrl + imageUrl[0]?.image_url} alt="food" />
         </div>
         <div className={styles.descr}>
           <h2>{title}</h2>

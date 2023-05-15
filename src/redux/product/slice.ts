@@ -20,20 +20,6 @@ export const productSlice = createSlice({
       state.items = action.payload;
     },
   },
-  /*extraReducers: {
-    [fetchProducts.pending]: (state) => {
-      state.status = '';
-      state.items = [];
-    },
-    [fetchProducts.fulfilled]: (state, action) => {
-      state.items = action.payload;
-      state.state = 'success';
-    },
-    [fetchProducts.rejected]: (state) => {
-      state.state = 'error';
-      state.items = [];
-    },
-  }, */
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state, action) => {
       state.status = Status.LOADING;

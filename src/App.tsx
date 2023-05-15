@@ -8,8 +8,12 @@ import Main from './components/main/Main';
 import NotFound from './components/notFound/NotFound';
 //import Basket from './components/basket/Basket';
 
-const Basket = React.lazy(() => import(/* webpackChunkName: "Basket" */ './components/basket/Basket'));
-const Profile = React.lazy(() => import(/* webpackChunkName: "Profile" */ './components/profile/Profile'));
+const Basket = React.lazy(
+  () => import(/* webpackChunkName: "Basket" */ './components/basket/Basket'),
+);
+const Profile = React.lazy(
+  () => import(/* webpackChunkName: "Profile" */ './components/profile/Profile'),
+);
 const Login = React.lazy(() => import(/* webpackChunkName: "Login" */ './components/login/Login'));
 
 function App() {
@@ -18,6 +22,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="dostavka-sadko-react" element={<Main />} />
         <Route path="login" element={<Login />} />
         <Route path="profile" element={<Profile />} />
         <Route

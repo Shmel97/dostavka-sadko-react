@@ -1,7 +1,7 @@
 .basket {
   margin: auto;
   max-width: 1440px;
-  height: auto;
+  min-height: 800px;
   > .text {
     margin: 70px 0 70px 300px;
     display: flex;
@@ -9,6 +9,7 @@
     @media (max-width: 1200px) {
       justify-content: center;
       margin: 70px auto;
+      min-height: 100%;
     }
   }
   > div > h1 {
